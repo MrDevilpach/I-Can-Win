@@ -1,0 +1,19 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+public class Third {
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://cloud.google.com/");
+        WebElement searchInput = driver.findElement(By.xpath("/html/body/section/devsite-header/div/div[1]/div/div/div[2]/devsite-search/form/div[1]/div/input"));
+        searchInput.sendKeys("Google Cloud Platform Pricing Calculator");
+        searchInput.sendKeys (Keys.ENTER);
+        WebDriverWait wait = new WebDriverWait(driver,5);
+        WebElement Link = driver.findElement(By.xpath("//a[@href='#' or starts-with(@href, 'https://cloud.google.com/products/calculator')]"));
+        Link.click();
+    }
+}
