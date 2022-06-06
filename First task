@@ -1,0 +1,20 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class First {
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.get("https://pastebin.com");
+        WebElement searchInput = driver.findElement(By.id("postform-text"));
+        searchInput.sendKeys("Hello from WebDriver");
+        WebElement searchBtn = driver.findElement(By.id("select2-postform-expiration-container"));
+        searchBtn.click();
+        driver.findElement(By.xpath("//*[@id=\"select2-postform-expiration-results\"]"));
+        WebElement Choice =  driver.findElement(By.xpath("//li[text()='10 Minutes']"));
+        Choice.click();
+        WebElement Title = driver.findElement(By.id("postform-name"));
+        Title.sendKeys("helloweb");
+    }
+}
